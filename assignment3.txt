@@ -1,0 +1,19 @@
+1--
+select * From Orders INNER Join Customer ON Orders.CustomerId = Customer.id and Customer.Phone = '040-56479521';
+
+2--
+Select id,ProductName
+From Product 
+Where Category = 'Seafood'
+
+3--
+select * From Orders INNER Join Customer ON Orders.CustomerId = Customer.id and Customer.Country != 'London';
+
+4--
+select * From Orders where id = 
+(Select OrderId from OrderItem Inner Join Product ON OrderItem.ProductId = Product.id and ProductName= 'Chai')
+
+--5--
+Select EmployeeName, Rating, Department 
+From Employee
+Where Empid = 101 ;

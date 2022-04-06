@@ -1,0 +1,48 @@
+1
+Select TotalAmount, Company
+From Orderr 
+Where Supplier = 'Exotic Liquids' AND TotalAmount > 40 
+
+2--
+
+Select EmpName 
+From Employee 
+Where JoiningDate = (Select MIN(JoiningDate) From Employee)
+
+--3--
+
+Select * From Employee 
+Where JoiningDate > 1/1/2022
+
+--4--
+
+Select ProductName , O.UnitPrice
+From OrderItem O FULL OUTER JOIN Product P
+Where O.UnitPrice = MAX(O.UnitPrice) OR O.UnitPrice= MIN(O.UnitPrice)
+
+--5--
+
+Select ProductName,id
+From Orders
+Where UnitStock < UnitOrder 
+
+--6--
+Select O.id, O.OrderDate, C.FirstName
+From Customer as C RIGHT OUTER JOIN Orderr as O
+
+--7--
+Select id,COUNT(*)  as Count
+From Orders
+Group By id
+Order By COUNT(*) DESC
+
+--8--
+
+Select id
+From Customer
+Where FirstName Like %RA& OR LastName Like %RA%
+
+--9--
+
+Select SUBSTR(CompanyName,1,(LOCATE(' ',CompanyName)))  AS FirstWord 
+From Company;

@@ -1,0 +1,69 @@
+--1--
+
+Select * from Customer Where Country = 'Germany'
+
+--2--
+
+Select Firstname+' '+LastName as FullName from Customer
+
+--3--
+
+Select * from Customer Where FaxNumber IS Not Null
+
+--4--
+
+Select * from Customer Where FirstName Like '_U%'
+
+--5--
+
+Select Orders.*
+From Orders
+Left Outer Join
+OrderItem 
+On Orders.id = OrderItem.Orderid
+Where UnitPrice BETWEEN 10 AND 20 
+
+--6--
+
+Select * from Orders
+Where OrderDate IS NOT NULL 
+Order By OrderDate
+
+--7--
+
+Select * FROM Orders 
+Where ShipName = 'La corned abondance' AND 
+		OrderDate BETWEEN 1/1/1990 AND 31/12/1980
+
+--8--
+
+Select id, ProductName 
+From Product 
+Where Suppliers = 'Exotic Liquids'
+
+--9--
+
+Select AVG(Quantity) as AvgQuantity 
+From Product 
+     Right Outer Join
+	 OrderItem
+	 On Product.id = OrderItem.Productid
+
+--10--
+
+Select Name , Manager 
+	 From Employee 
+
+--11--
+FROM product
+	 Left Outer Join
+	 Order 
+
+--12--
+select * from orders inner join orderitem on orders.id=orderitem.orderid 
+inner join Product on orderitem.productid=product.id
+where Suppliers='Exotic Liquids' and TotalAmount>50;
+
+
+
+
